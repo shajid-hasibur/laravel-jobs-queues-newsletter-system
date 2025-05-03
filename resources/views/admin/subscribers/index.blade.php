@@ -24,11 +24,13 @@
                             <td>{{ $subscriber->name }}</td>
                             <td>{{ $subscriber->email }}</td>
                             <td>
-                                <a href="{{ route('subscribers.edit', $subscriber) }}">Edit</a>
+                                <a href="{{ route('subscribers.edit', $subscriber) }}"><i class="fas fa-edit"></i></a>
                                 <form action="{{ route('subscribers.destroy', $subscriber) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" onclick="return confirm('Delete this subscriber?')">Delete</button>
+                                    <button class="ml-1" type="submit" onclick="return confirm('Delete this subscriber?')" style="border: none; background: none; padding: 0; cursor: pointer;">
+                                        <i class="fas fa-trash"></i>
+                                      </button>                                      
                                 </form>
                             </td>
                         </tr>

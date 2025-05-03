@@ -33,7 +33,7 @@ class SubscriberController extends Controller
 
     public function edit(Subscriber $subscriber)
     {
-        return view('subscribers.edit', compact('subscriber'));
+        return view('admin.subscribers.edit', compact('subscriber'));
     }
 
     public function update(Request $request, Subscriber $subscriber)
@@ -41,6 +41,8 @@ class SubscriberController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:subscribers,email,' . $subscriber->id,
+            'address' => 'required|string|max:250',
+            'phone' => 'required|string|max:15',
         ]);
 
         $subscriber->update($validated);
